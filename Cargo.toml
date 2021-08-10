@@ -1,0 +1,11 @@
+[package]
+name = "dos-rs"
+version = "0.1.0"
+authors = ["Albert Cervin <albert@acervin.com>"]
+edition = "2018"
+
+[[example]]
+name = "hello"
+crate-type = ["staticlib"]
+
+[dependencies]

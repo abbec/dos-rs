@@ -1,0 +1,21 @@
+{
+  "arch": "x86",
+  "cpu": "i486",
+  "data-layout": "e-m:x-p:32:32-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:32-n8:16:32-a:0:32-S32",
+  "exe-suffix": ".exe",
+  "executables": true,
+  "dynamic-linking": false,
+  "features": "-mmx,-sse,+soft-float",
+  "llvm-target": "i686-unknown-none-elf",
+  "singlethread": true,
+  "os": "dos",
+  "panic-strategy": "abort",
+  "target-pointer-width": "32",
+  "target-c-int-width": "32",
+  "target-endian": "little",
+  "relocation-model": "static",
+  "relro-level": "full",
+  "position-independent-executables": false,
+  "emit-debug-gdb-scripts": false,
+  "disable-redzone": true
+}
