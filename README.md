@@ -19,7 +19,7 @@ respectively.
 
 ## Dev setup
 
-This uses (Nix)[https://nixos.org] for pulling in dependencies and creating a dev
+This uses [Nix](https://nixos.org) for pulling in dependencies and creating a dev
 environment. Install Nix and issue `nix-shell` in the directory to get a shell with all
 the tools.
 
