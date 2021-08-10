@@ -6,7 +6,7 @@ Create DOS protected mode programs with Rust!
 
 Because it is possible!
 
-!(./docs/hello.png)[]
+![running hello in dosbox](./docs/hello.png)
 
 ## How?
 
