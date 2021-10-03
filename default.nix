@@ -16,17 +16,45 @@ let
 
         config = { };
       };
+
+  nightlyDate = "2021-09-27";
+
+  rustBin = (pkgs.rust-bin.nightly."${nightlyDate}".default.override {
+      extensions = [ "rust-src" ];
+    });
+  rustAnalyzer = pkgs.rust-bin.nightly."${nightlyDate}".rust-analyzer-preview;
+
+  # rust-analyzer cannot handle symlinks
+  # so we need to create a derivation with the
+  # correct rust source without symlinks
+  rustSrcNoSymlinks = pkgs.stdenv.mkDerivation {
+    name = "rust-src-no-symlinks";
+
+    rustWithSrc = (rustBin.override {
+      extensions = [ "rust-src" ];
+    });
+    rust = rustBin;
+
+    builder = builtins.toFile "builder.sh" ''
+      source $stdenv/setup
+      mkdir -p $out
+      cp -r -L $rustWithSrc/lib/rustlib/src/rust/library/. $out/
+      '';
+  };
 in
 pkgs.stdenv.mkDerivation {
   name = "dos-rs";
   nativeBuildInputs = [
-    (pkgs.rust-bin.nightly."2021-08-09".default.override {
-      extensions = [ "rust-src" ];
-    })
+    rustBin
     pkgs.dosbox
     pkgs.nasm
-  ];
+  ] ++ pkgs.lib.optional pkgs.lib.inNixShell rustAnalyzer;
 
   WATCOM=pkgs.open-watcom-bin;
-  CARGO_BUILD_TARGET="dos.json";
+
+  shellHook=''
+    run() {
+      make run
+    }
+  '';
 }

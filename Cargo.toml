@@ -4,8 +4,15 @@ version = "0.1.0"
 authors = ["Albert Cervin <albert@acervin.com>"]
 edition = "2018"
 
+# workaround for not getting @PLT
+# references to _memset and friends
+# which makes the Watcom linker very sad
+# using opt-level=1 causes them to be
+# inlined
+# TODO: create own linker?
+[profile.dev]
+opt-level = 1
+
 [[example]]
 name = "hello"
 crate-type = ["staticlib"]
-
-[dependencies]

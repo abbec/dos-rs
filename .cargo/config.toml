@@ -1,0 +1,6 @@
+[unstable]
+build-std-features = ["compiler-builtins-mem"]
+build-std = ["core"]
+
+[build]
+target = "dos.json"

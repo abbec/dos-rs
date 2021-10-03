@@ -6,7 +6,7 @@
   "executables": true,
   "dynamic-linking": false,
   "features": "-mmx,-sse,+soft-float",
-  "llvm-target": "i686-unknown-none-elf",
+  "llvm-target": "i486-unknown-dos-elf",
   "singlethread": true,
   "os": "dos",
   "panic-strategy": "abort",
@@ -14,8 +14,10 @@
   "target-c-int-width": "32",
   "target-endian": "little",
   "relocation-model": "static",
-  "relro-level": "full",
   "position-independent-executables": false,
+  "static-position-independent-executables": false,
   "emit-debug-gdb-scripts": false,
-  "disable-redzone": true
+  "disable-redzone": true,
+  "needs-plt": false,
+  "no-default-libraries": true
 }
