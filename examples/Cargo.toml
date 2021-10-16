@@ -1,0 +1,14 @@
+[package]
+name = "dos-rs-examples"
+version = "0.0.0"
+publish = false
+edition = "2018"
+author = "Albert Cervin <albert@acervin.com>"
+
+[dev-dependencies]
+dos-rs = { path = "../dos-rs" }
+
+[[example]]
+name = "hello"
+path = "hello/main.rs"
+crate-type = ["staticlib"]

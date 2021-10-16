@@ -1,3 +1,3 @@
 segment stack stack use32 class=stack
-        resb 100000h ; 1 Mb
+        resb 10000h ; 64 Kb
 ;stacktop:

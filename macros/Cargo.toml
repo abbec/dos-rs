@@ -1,0 +1,11 @@
+[package]
+name = "dos-rs-macros"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "1.0.80", features = [ "full" ] }
+quote = "1.0.10"

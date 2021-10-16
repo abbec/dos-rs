@@ -3,6 +3,8 @@
 
 use core::panic::PanicInfo;
 
+pub use dos_rs_macros::main;
+
 #[panic_handler]
 fn panic(_panic: &PanicInfo<'_>) -> ! {
     loop {}

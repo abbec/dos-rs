@@ -1,8 +1,11 @@
-[package]
-name = "dos-rs"
-version = "0.1.0"
-authors = ["Albert Cervin <albert@acervin.com>"]
-edition = "2018"
+[workspace]
+
+members = [
+  "dos-rs",
+  "macros",
+
+  "examples"
+]
 
 # workaround for not getting @PLT
 # references to _memset and friends
@@ -12,7 +15,3 @@ edition = "2018"
 # TODO: create own linker?
 [profile.dev]
 opt-level = 1
-
-[[example]]
-name = "hello"
-crate-type = ["staticlib"]
